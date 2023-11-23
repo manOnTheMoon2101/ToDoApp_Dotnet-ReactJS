@@ -1,19 +1,82 @@
-﻿#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
+﻿
+
+.formDiv {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: rgb(176, 97, 97);
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px
 }
 
-tr:nth-child(even) {
-    background: #F2F2F2;
+    .formDiv input {
+       
+      width:200px;
+      float:left
+    }
+
+    .formDiv h2 {
+        text-align: center;
+        font-family: 'Ubuntu Mono', monospace;
+    }
+.submitB {
+    float: right;
+    height: 100px;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: rgb(220, 134, 134);
+    width: 50px;
+    font-weight: bold;
+    font-family: 'Ubuntu Mono', monospace;
+}
+.messageI{
+    padding:15px;
+    
 }
 
-tr:nth-child(odd) {
-    background: #FFF;
+
+.insertDiv{
+    float:left;
+    
+   
 }
 
-th, td {
-    padding-left: 1rem;
-    padding-right: 1rem;
+
+.dataPost{
+    clear:both;
+    padding:20px
+    
 }
+
+.content {
+    height: 40px;
+    float: left;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgb(240, 219, 175);
+    width:100%
+}
+
+    .content p {
+        margin: 10px;
+        font-family: 'Ubuntu Mono', monospace;
+    }
+
+.buttons{
+  float:right
+}
+
+    .buttons button {
+        border: none;
+        margin: 3px;
+        border-radius: 10px;
+    }
+
+    .delete:hover{
+        background-color:red;
+        cursor:pointer;
+        color:white
+    }

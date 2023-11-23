@@ -1,8 +1,10 @@
+/* eslint-disable react/jsx-key */
 import { useEffect, useState } from 'react';
 import './App.css';
 import axios from "axios";
-
-
+import Calendar from 'react-calendar';
+import { AiOutlineDelete } from "react-icons/ai";
+import { AiFillEdit } from "react-icons/ai";
 
 function App() {
 
@@ -59,50 +61,78 @@ function App() {
 
 
 
+    const [calendar, setCalendar] = useState(new Date());
 
+    const newDay = calendar.getDate()
+    const newMonth = calendar.getMonth()
+    const newYear = calendar.getFullYear()
 
-
+    const fullDate = `${newYear}-${newMonth}-${newDay}`
 
     return (
         <>
-            <h2>Home</h2>
-            <form onSubmit={handleSubmit}>
+            
+            
+           
+            
+       
+            <div className='formDiv'>
+                <h2>ToDo App</h2>
+
+               
+                <form onSubmit={handleSubmit}>
+                    <div className='insertDiv'>
+                    <label>
+
+                        <input className='messageI' placeholder="Insert Task..." name='message' value={inputs.message || ""} onChange={handleChange} />
+
+                    </label>
+                    <br/>
                 <label>
-                    Name
-                    <input name='name' value={inputs.name || ""} onChange={handleChange} />
+
+                            {/*  <input placeholder="Your name..." name='name' value={inputs.name || ""} onChange={handleChange} /> */}
 
                 </label>
 
 
-                <label>
-                    Message
-                    <input name='message' value={inputs.message || ""} onChange={handleChange} />
-
-                </label>
+                    <br />
 
                 <label>
-                    Date
-                    <input name='date' value={inputs.date || ""} onChange={handleChange} />
+                    
+                            {/*   <input name='date' value={inputs.date =  `${fullDate}`|| ""} onChange={handleChange} /> */}
 
                 </label>
+                </div>
+                        <button className='submitB' type='submit'>Add</button>
+                
 
-                <button type='submit'>Submit</button>
+                </form>
+               
+                {data.map((x) => (
+                    <div className='dataPost'>
 
-            </form>
+                        <div className='content'>
+                        <p className='message'>{x.message}</p>
+                        
+
+                        </div>
+                        
+                        <div className='buttons'>
+                            <button className='delete' onClick={() => handleDelete(x.id)}><AiOutlineDelete /></button>
+                            <button><AiFillEdit /></button>
+                        </div>
+
+                        
+                      
 
 
-            {data.map((x) => (
-                <>
-                    <p>{x.id}</p>
-                    <p>{x.name}</p>
-                    <p>{x.message}</p>
-                    <button onClick={() => handleDelete(x.id) }>Delete</button>
-                    <button>Edit</button>
-                    <p>{x.date}</p>
+                    </div>
+                ))}
+                
+            </div>
 
-
-                </>
-            ))}
+           
+            {/* <Calendar onChange={setCalendar} value={calendar} /> */}
         </>
     );
 
