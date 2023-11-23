@@ -41,7 +41,16 @@ function App() {
 
             });
     };
-
+    const handleDelete = (id) => {
+        axios.delete(`/api/data/GetData/${id}`)
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        
+    }
     const handleChange = (e) => {
         const name = e.target.name;
         const value = String(e.target.value);
@@ -87,7 +96,7 @@ function App() {
                     <p>{x.id}</p>
                     <p>{x.name}</p>
                     <p>{x.message}</p>
-                    <button>Delete</button>
+                    <button onClick={() => handleDelete(x.id) }>Delete</button>
                     <button>Edit</button>
                     <p>{x.date}</p>
 
